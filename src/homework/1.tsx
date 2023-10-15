@@ -1,14 +1,9 @@
 import { useEffect, useRef, FC, ReactNode } from "react";
+import "intersection-observer";
 
 interface Props {
   children: ReactNode;
   onContentEndVisible: () => void;
-}
-
-interface Options {
-  rootMargin: string;
-  threshold: number;
-  root: null;
 }
 
 // Describe the Props
@@ -18,7 +13,7 @@ export const Observer: FC<Props> = ({ children, onContentEndVisible }) => {
 
   useEffect(() => {
     // Specify the correct type for options, hint, class can also be specified as a type
-    const options: Options = {
+    const options: IntersectionObserverInit = {
       rootMargin: "0px",
       threshold: 1.0,
       root: null,
